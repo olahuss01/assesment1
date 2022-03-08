@@ -1,0 +1,19 @@
+image: hashicorp/terraform:full
+pipelines:
+    default:
+        - step:
+            script:
+                - apk add --no-cache python3 py3-pip
+                - cd tf
+                - terraform init
+                - terraform validate
+                - terraform plan
+    branches:
+        master:
+            - step:
+                script:
+                    - cd tf
+                    - terraform init
+                    - terraform validate
+                    - terraform plan
+                    - terraform apply -input=false -auto-approve

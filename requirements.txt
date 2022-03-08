@@ -1,0 +1,4 @@
+python-bitbucket
+boto3
+docker
+GitPython
